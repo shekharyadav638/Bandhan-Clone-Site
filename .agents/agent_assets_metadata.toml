@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "E6AHyxw7-cjemcmd8lWda"
+uri = "file://artifacts/insurance-site/src/assets/home-hero.png"
+type = "image"
+title = "Indian family at sunset"
+
+[[generated]]
+id = "_0JwjUqiO9BHOaJ8zTieS"
+uri = "file://artifacts/insurance-site/src/assets/term-hero.png"
+type = "image"
+title = "Professional office setting"
+
+[[generated]]
+id = "885KpnUEo2MDDrl5FhbDF"
+uri = "file://artifacts/insurance-site/src/assets/careers-hero.png"
+type = "image"
+title = "Happy diverse workplace"
+
+[[generated]]
+id = "pLRkjS_tiLcBJsV5TBFWB"
+uri = "file://artifacts/insurance-site/src/assets/retirement-hero.png"
+type = "image"
+title = "Elderly couple relaxing"
