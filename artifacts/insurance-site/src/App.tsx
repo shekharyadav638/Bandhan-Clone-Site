@@ -1,4 +1,3 @@
-import React from "react";
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -6,13 +5,45 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import NotFound from "@/pages/not-found";
 
-// Placeholder component for pages to be built
-const PlaceholderPage = ({ title }: { title: string }) => (
-  <div className="container mx-auto px-4 py-24 text-center">
-    <h1 className="text-4xl font-serif font-bold text-primary mb-4">{title}</h1>
-    <p className="text-muted-foreground max-w-md mx-auto">This page is currently being updated. Please check back later.</p>
-  </div>
-);
+import Home from "@/pages/home";
+import AboutUs from "@/pages/about-us/index";
+import OurStory from "@/pages/about-us/our-story";
+import Leadership from "@/pages/about-us/leadership";
+import Awards from "@/pages/about-us/awards";
+import CSR from "@/pages/about-us/csr";
+
+import Products from "@/pages/products/index";
+import TermInsurance from "@/pages/products/term-insurance";
+import SavingsPlans from "@/pages/products/savings-plans";
+import ULIP from "@/pages/products/ulip";
+import RetirementPlans from "@/pages/products/retirement-plans";
+import ChildPlans from "@/pages/products/child-plans";
+import GroupInsurance from "@/pages/products/group-insurance";
+
+import Claims from "@/pages/claims/index";
+import HowToClaim from "@/pages/claims/how-to-claim";
+import ClaimForms from "@/pages/claims/claim-forms";
+import ClaimStatus from "@/pages/claims/claim-status";
+
+import CustomerService from "@/pages/customer-service/index";
+import ContactUs from "@/pages/customer-service/contact-us";
+import FAQs from "@/pages/customer-service/faqs";
+import GrievanceRedressal from "@/pages/customer-service/grievance-redressal";
+import Downloads from "@/pages/customer-service/downloads";
+import PremiumPayment from "@/pages/customer-service/premium-payment";
+
+import Careers from "@/pages/careers/index";
+import LifeAtSuraksha from "@/pages/careers/life-at-suraksha";
+
+import BlogList from "@/pages/blog/index";
+import BlogPost from "@/pages/blog/[slug]";
+
+import InvestorRelations from "@/pages/investor-relations/index";
+import Financials from "@/pages/investor-relations/financials";
+import AnnualReports from "@/pages/investor-relations/annual-reports";
+import Disclosures from "@/pages/investor-relations/disclosures";
+
+import Sitemap from "@/pages/sitemap";
 
 const queryClient = new QueryClient();
 
@@ -20,46 +51,46 @@ function Router() {
   return (
     <SiteLayout>
       <Switch>
-        <Route path="/" component={() => <PlaceholderPage title="Welcome to Suraksha Life" />} />
+        <Route path="/" component={Home} />
         
-        <Route path="/about-us" component={() => <PlaceholderPage title="About Us" />} />
-        <Route path="/about-us/our-story" component={() => <PlaceholderPage title="Our Story" />} />
-        <Route path="/about-us/leadership" component={() => <PlaceholderPage title="Leadership Team" />} />
-        <Route path="/about-us/awards" component={() => <PlaceholderPage title="Awards & Recognition" />} />
-        <Route path="/about-us/csr" component={() => <PlaceholderPage title="Corporate Social Responsibility" />} />
+        <Route path="/about-us" component={AboutUs} />
+        <Route path="/about-us/our-story" component={OurStory} />
+        <Route path="/about-us/leadership" component={Leadership} />
+        <Route path="/about-us/awards" component={Awards} />
+        <Route path="/about-us/csr" component={CSR} />
         
-        <Route path="/products" component={() => <PlaceholderPage title="Our Products" />} />
-        <Route path="/products/term-insurance" component={() => <PlaceholderPage title="Term Insurance" />} />
-        <Route path="/products/savings-plans" component={() => <PlaceholderPage title="Savings Plans" />} />
-        <Route path="/products/ulip" component={() => <PlaceholderPage title="Unit Linked Insurance Plans" />} />
-        <Route path="/products/retirement-plans" component={() => <PlaceholderPage title="Retirement Plans" />} />
-        <Route path="/products/child-plans" component={() => <PlaceholderPage title="Child Education Plans" />} />
-        <Route path="/products/group-insurance" component={() => <PlaceholderPage title="Group Insurance" />} />
+        <Route path="/products" component={Products} />
+        <Route path="/products/term-insurance" component={TermInsurance} />
+        <Route path="/products/savings-plans" component={SavingsPlans} />
+        <Route path="/products/ulip" component={ULIP} />
+        <Route path="/products/retirement-plans" component={RetirementPlans} />
+        <Route path="/products/child-plans" component={ChildPlans} />
+        <Route path="/products/group-insurance" component={GroupInsurance} />
         
-        <Route path="/claims" component={() => <PlaceholderPage title="Claims Overview" />} />
-        <Route path="/claims/how-to-claim" component={() => <PlaceholderPage title="How to Claim" />} />
-        <Route path="/claims/claim-forms" component={() => <PlaceholderPage title="Claim Forms" />} />
-        <Route path="/claims/claim-status" component={() => <PlaceholderPage title="Track Claim Status" />} />
+        <Route path="/claims" component={Claims} />
+        <Route path="/claims/how-to-claim" component={HowToClaim} />
+        <Route path="/claims/claim-forms" component={ClaimForms} />
+        <Route path="/claims/claim-status" component={ClaimStatus} />
         
-        <Route path="/customer-service" component={() => <PlaceholderPage title="Customer Service" />} />
-        <Route path="/customer-service/contact-us" component={() => <PlaceholderPage title="Contact Us" />} />
-        <Route path="/customer-service/faqs" component={() => <PlaceholderPage title="FAQs" />} />
-        <Route path="/customer-service/grievance-redressal" component={() => <PlaceholderPage title="Grievance Redressal" />} />
-        <Route path="/customer-service/downloads" component={() => <PlaceholderPage title="Downloads" />} />
-        <Route path="/customer-service/premium-payment" component={() => <PlaceholderPage title="Premium Payment" />} />
+        <Route path="/customer-service" component={CustomerService} />
+        <Route path="/customer-service/contact-us" component={ContactUs} />
+        <Route path="/customer-service/faqs" component={FAQs} />
+        <Route path="/customer-service/grievance-redressal" component={GrievanceRedressal} />
+        <Route path="/customer-service/downloads" component={Downloads} />
+        <Route path="/customer-service/premium-payment" component={PremiumPayment} />
         
-        <Route path="/careers" component={() => <PlaceholderPage title="Careers" />} />
-        <Route path="/careers/life-at-suraksha" component={() => <PlaceholderPage title="Life at Suraksha" />} />
+        <Route path="/careers" component={Careers} />
+        <Route path="/careers/life-at-suraksha" component={LifeAtSuraksha} />
         
-        <Route path="/blog" component={() => <PlaceholderPage title="Blog" />} />
-        <Route path="/blog/:slug" component={() => <PlaceholderPage title="Blog Post" />} />
+        <Route path="/blog" component={BlogList} />
+        <Route path="/blog/:slug" component={BlogPost} />
         
-        <Route path="/investor-relations" component={() => <PlaceholderPage title="Investor Relations" />} />
-        <Route path="/investor-relations/financials" component={() => <PlaceholderPage title="Financials" />} />
-        <Route path="/investor-relations/annual-reports" component={() => <PlaceholderPage title="Annual Reports" />} />
-        <Route path="/investor-relations/disclosures" component={() => <PlaceholderPage title="Disclosures" />} />
+        <Route path="/investor-relations" component={InvestorRelations} />
+        <Route path="/investor-relations/financials" component={Financials} />
+        <Route path="/investor-relations/annual-reports" component={AnnualReports} />
+        <Route path="/investor-relations/disclosures" component={Disclosures} />
         
-        <Route path="/sitemap" component={() => <PlaceholderPage title="Sitemap" />} />
+        <Route path="/sitemap" component={Sitemap} />
 
         <Route component={NotFound} />
       </Switch>

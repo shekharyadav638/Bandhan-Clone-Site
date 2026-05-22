@@ -24,3 +24,15 @@ id = "pLRkjS_tiLcBJsV5TBFWB"
 uri = "file://artifacts/insurance-site/src/assets/retirement-hero.png"
 type = "image"
 title = "Elderly couple relaxing"
+
+[[generated]]
+id = "6F9EyLtF67WUrx4a8ZG62"
+uri = "file://artifacts/insurance-site/src/assets/investor-hero.png"
+type = "image"
+title = "Corporate building in India"
+
+[[generated]]
+id = "yz2u96zTJVVZmN0OeJbs1"
+uri = "file://artifacts/insurance-site/src/assets/csr-hero.png"
+type = "image"
+title = "Team volunteering"
