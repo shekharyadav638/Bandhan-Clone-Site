@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-brand: hsl(var(--brand));
+  --color-brand-foreground: hsl(var(--brand-foreground));
+  --color-brand-dark: hsl(var(--brand-dark));
+  --color-brand-deep: hsl(var(--brand-deep));
+  --color-brand-soft: hsl(var(--brand-soft));
+
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222 30% 16%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 161 86% 36%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 30% 16%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 30% 16%;
+
+  --primary: 161 86% 36%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 220 15% 96%;
+  --secondary-foreground: 222 30% 16%;
+
+  --muted: 220 15% 96%;
+  --muted-foreground: 220 9% 46%;
+
+  --accent: 161 60% 48%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --brand: 161 86% 36%;            /* #0CAB7D Greenway green */
+  --brand-foreground: 0 0% 100%;
+  --brand-dark: 222 30% 16%;       /* #1B2538 dark navy */
+  --brand-deep: 235 16% 25%;       /* #363749 muted slate */
+  --brand-soft: 161 60% 95%;       /* light green tint */
+
+  --app-font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4, h5, h6 { color: hsl(var(--brand-dark)); font-weight: 700; letter-spacing: -0.01em; }
+  a { color: hsl(var(--brand)); }
+  a:hover { text-decoration: underline; }
+}
+
+@layer utilities {
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8; }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[hsl(var(--brand))] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[hsl(161_86%_30%)] hover:no-underline;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-[hsl(var(--brand))] px-6 py-3 text-sm font-semibold text-[hsl(var(--brand))] transition hover:bg-[hsl(var(--brand))] hover:text-white hover:no-underline;
+  }
+  .btn-ghost-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[hsl(var(--brand-dark))] hover:no-underline;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(var(--brand))];
+  }
+  .section-pad { @apply py-16 md:py-24; }
+  .prose-greenway p { @apply text-[17px] leading-[1.7] text-[hsl(var(--brand-deep))]; }
+}
