@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { ChevronDown, Menu, X, Search } from "lucide-react";
 import { megaMenu } from "@/data/nav";
@@ -8,6 +8,22 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelClose = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => setOpen(null), 180);
+  };
+  const openMenu = (label: string) => {
+    cancelClose();
+    setOpen(label);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -19,6 +35,8 @@ export function Header() {
     setOpen(null);
     setMobileOpen(false);
   }, [location]);
+
+  useEffect(() => () => cancelClose(), []);
 
   return (
     <header className={`sticky top-0 z-50 w-full bg-white transition-shadow ${scrolled ? "shadow-md" : "border-b border-border"}`}>
@@ -37,20 +55,28 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1" onMouseLeave={() => setOpen(null)}>
+        <nav className="hidden lg:flex items-center gap-1">
           {megaMenu.map((item) => (
-            <div key={item.label} className="relative">
+            <div
+              key={item.label}
+              className="relative"
+              onMouseEnter={() => openMenu(item.label)}
+              onMouseLeave={scheduleClose}
+            >
               <button
                 className="flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold text-[hsl(var(--brand-dark))] hover:text-[hsl(var(--brand))] transition"
-                onMouseEnter={() => setOpen(item.label)}
-                onFocus={() => setOpen(item.label)}
+                onFocus={() => openMenu(item.label)}
                 onClick={() => setOpen(open === item.label ? null : item.label)}
               >
                 {item.label}
                 <ChevronDown className={`h-4 w-4 transition-transform ${open === item.label ? "rotate-180" : ""}`} />
               </button>
               {open === item.label && (
-                <div className="fixed left-0 right-0 top-[116px] z-50 mt-0 border-t border-border bg-white shadow-xl animate-in fade-in slide-in-from-top-2">
+                <div
+                  className="fixed left-0 right-0 top-[116px] z-50 mt-0 border-t border-border bg-white shadow-xl animate-in fade-in slide-in-from-top-2"
+                  onMouseEnter={cancelClose}
+                  onMouseLeave={scheduleClose}
+                >
                   <div className="container-x grid gap-10 py-10 lg:grid-cols-[2fr_1fr]">
                     <div className={`grid gap-10 ${item.groups[0].links.length > 10 ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
                       {item.groups.map((g) => (
