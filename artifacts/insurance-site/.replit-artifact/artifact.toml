@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Insurance Site"
+version = "1.0.0"
+id = "artifacts/insurance-site"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23238
+
+[services.development]
+run = "pnpm --filter @workspace/insurance-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/insurance-site", "run", "build" ]
+publicDir = "artifacts/insurance-site/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23238"
+BASE_PATH = "/"
