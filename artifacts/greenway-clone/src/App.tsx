@@ -78,18 +78,16 @@ function Router() {
 
 function App() {
   return (
-    <FlowEngageProvider
-    siteId="c98d61bb-19fd-4b62-a4ab-d911ccacda4b"
-  >
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Router />
-        </WouterRouter>
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
-    <FlowEngageWidget />
+    <FlowEngageProvider siteId="c98d61bb-19fd-4b62-a4ab-d911ccacda4b">
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <Router />
+          </WouterRouter>
+          <Toaster />
+        </TooltipProvider>
+      </QueryClientProvider>
+      <FlowEngageWidget />
     </FlowEngageProvider>
   );
 }
