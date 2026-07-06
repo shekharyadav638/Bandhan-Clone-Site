@@ -219,8 +219,8 @@ importers:
   artifacts/greenway-clone:
     dependencies:
       '@flowengage/react-chatbot':
-        specifier: ^6.0.45
-        version: 6.0.45(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        specifier: ^8.0.19
+        version: 8.0.19(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     devDependencies:
       '@hookform/resolvers':
         specifier: ^3.10.0
@@ -777,8 +777,8 @@ packages:
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
 
-  '@flowengage/react-chatbot@6.0.45':
-    resolution: {integrity: sha512-eQE6LnLOF1tLf0wHTZIqfi04pgPfAfJdGenTShpFwbit54mryAkQiOBB8Knbp6cYSVyFk7Yd3NvKpvTvya8QhA==}
+  '@flowengage/react-chatbot@8.0.19':
+    resolution: {integrity: sha512-YghqlyCHaJ5nHFnCMD7ERACjpIUztAVK0P0fxkWUECkg1/cEEPPebgg4I+rZmqhlFigvGZeou/soujTDAPnF4w==}
     peerDependencies:
       react: '>=18.0.0'
       react-dom: '>=18.0.0'
@@ -2892,6 +2892,7 @@ packages:
   recharts@2.15.4:
     resolution: {integrity: sha512-UT/q6fwS3c1dHbXv2uFgYJ9BMFHu3fwnd7AYZaEQhXuYQ4hgsxLvsUXzGdKeZrW5xopzDCvuA2N41WJ88I7zIw==}
     engines: {node: '>=14'}
+    deprecated: 1.x and 2.x branches are no longer active. Bump to Recharts v3 to receive latest features and bugfixes. See https://github.com/recharts/recharts/wiki/3.0-migration-guide
     peerDependencies:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -3077,6 +3078,7 @@ packages:
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
     engines: {node: ^18 || >=20}
+    deprecated: unmaintained
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -3446,7 +3448,7 @@ snapshots:
 
   '@floating-ui/utils@0.2.11': {}
 
-  '@flowengage/react-chatbot@6.0.45(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@flowengage/react-chatbot@8.0.19(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@elevenlabs/client': 0.12.2
       motion: 12.40.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
